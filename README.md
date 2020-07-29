@@ -16,6 +16,8 @@ A bientôt !
 
 Merci à SixLa et Shéa pour le google doc à l'origine de ce bot !
 
+Merci à Doudoune pour les tests effectués et les critiques toujours constructives !
+
 # La suite :
   • Priorité numéro 1 : faire la même chose mais cette en challenge construction
   • Ajouter les DLCs
