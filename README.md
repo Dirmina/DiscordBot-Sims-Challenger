@@ -14,7 +14,7 @@ A bientôt !
 
 # Remerciements
 
-Merci à SixLa et Shéa pour le google doc à l'origine de ce bot !
+Merci à SixLa(https://github.com/SixLa) et Shéa pour le google doc à l'origine de ce bot !
 
 Merci à Doudoune pour les tests effectués et les critiques toujours constructives !
 
