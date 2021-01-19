@@ -2,19 +2,23 @@ const Promise = require('bluebird');
 const _ = require('lodash');
 
 const Bibliotheque = require('./bibliotheque');
+const Roles = require('./models/Roles');
+const Reactions = require('./models/Reactions');
 
-exports.getRandomIntInclusive = (min, max) => {
+let Functions = {};
+
+Functions.getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
-exports.setField = (categoryName, description) => 
+Functions.setField = (categoryName, description) => 
     field = {
         name: categoryName,
         value: description
     }
-exports.searchAndSetAMissingGuildRole = (roles, guild, roleName) => {
+Functions.searchAndSetAMissingGuildRole = (roles, guild, roleName) => {
     if (!roles.cache.find( role => role.name === roleName)) {
         return guild.roles.create( {
             data : {
@@ -25,13 +29,13 @@ exports.searchAndSetAMissingGuildRole = (roles, guild, roleName) => {
     }
 }
 
-exports.searchAndSetAMissingChannelText = (guild, channelName) => {
+Functions.searchAndSetAMissingChannelText = (guild, channelName) => {
     if (!guild.channels.cache.find( channel => channel.name === channelName)) {
         guild.channels.create(channelName)
     }
 }
 
-exports.setGameProfile = message => {
+Functions.setGameProfile = message => {
     const { cache: roles } = message.member.roles;
     let game = {}     
     _.forEach(Bibliotheque.guildRoles, roleToSearch => {
@@ -57,7 +61,7 @@ exports.setGameProfile = message => {
     return game;
 }
 
-exports.executeCommand = (command, bot, message, argumentOfCommand) => {
+Functions.executeCommand = (command, bot, message, argumentOfCommand) => {
     if (bot.commands.get(command)) {
         return bot.commands.get(command).execute(message, argumentOfCommand);
     }
@@ -66,7 +70,29 @@ exports.executeCommand = (command, bot, message, argumentOfCommand) => {
     }
 }
 
-exports.commandFormatter = (message, prefix) => {
+Functions.commandFormatter = (message, prefix) => {
     const args = message.content.slice(prefix.length).split(/ +/);
     return args.shift().toLowerCase();
 }
+
+Functions.setEmbed = (Discord, emojisRoles) => {
+    let description = "";
+    _.forEach(emojisRoles, emojiRole => {
+        description += `${emojiRole.emoji} : '${emojiRole.role.name}'\n`
+    })
+    return new Discord.MessageEmbed()
+        .setColor('#565')
+        .setTitle('Tu joues aux Sims 4 ? Choisis tes DLCS pour avoir une expériences totalement personnalisée !!')
+        .setDescription(description);
+}
+
+Functions.checkReaction = async (reaction, user, channel, cache, reactionName) => {
+    Reactions.fetch(reaction);
+    if (user.bot || !reaction.message.guild) return;
+    if (reaction.message.channel.id == channel) {
+       reactionName == 'messageReactionAdd' ? await Roles.addRolesToUser(reaction, user, cache)
+        : await Roles.removeRolesToUser(reaction, user, cache)
+      }
+}
+
+module.exports = Functions;

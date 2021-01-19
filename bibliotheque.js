@@ -231,3 +231,19 @@ exports.typeOfCarriere = [
     "carriereNonConventionnelles",
     "carriereMiTemps"
 ]
+
+exports.emojisRoles = (cache) => [
+    { role: cache.find(role => role.name == 'Les Sims 4'), emoji: '👨‍👩‍👦' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Kit Moschino'), emoji : '🏺' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Au Travail'), emoji : '👷🏼' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Au Restaurant'), emoji : '🍽️' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Vie Citadine'), emoji : '🌇' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Chiens et Chats'), emoji : '🐶' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Saisons'), emoji : '🍁' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Heure de Gloire'), emoji : '🤩' },
+    { role :cache.find(role => role.name == 'Les Sims 4 - Iles Paradisiaques'), emoji : '🏝️' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - A la Fac'), emoji : '📚' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - StrangerVille'), emoji : '👽' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Ecologie'), emoji : '🌳' },
+    { role : cache.find(role => role.name == 'Les Sims 4 - Etre Parents'), emoji: '🧑🏼‍🍼' }
+]
