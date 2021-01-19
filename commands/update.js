@@ -5,7 +5,7 @@ const _ = require('lodash');
 module.exports = {
   name: 'update',
   description: 'update the bot !',
-  async execute(message, bot) {
+  async execute(message) {
       const { roles } = message.guild;
       const { channels } = message.guild;
       if (!roles.cache.find(role => role.name == 'Les Sims 4 - Etre Parents')) {

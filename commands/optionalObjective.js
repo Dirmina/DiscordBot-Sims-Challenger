@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 const _ = require('lodash');
 
 module.exports = {
-    name: 'optionalObjective',
+    name: 'optionalobjective',
     description: 'The list of all available jobs for you !',
-    execute(game, message) {
+    execute(message, game) {
         const embed = new Discord.MessageEmbed()
         embed.setTitle('Optional Family Objective Command =D ! ')
         embed.setColor('#f5b3f3')

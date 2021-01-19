@@ -135,7 +135,7 @@ module.exports = {
         }
     return game;
     },
-    async execute(game, message) {
+    async execute(message, game) {
         console.log(game);
         let fields = []
         let settings = {

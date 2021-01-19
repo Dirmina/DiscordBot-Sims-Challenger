@@ -1,7 +1,9 @@
+const Discord = require('discord.js');
+
 module.exports = {
-  name: 'reactionRole',
+  name: 'reactionrole',
   description: "Add or remove a role with a reaction role message handler",
-  async execute(message, args, Discord, client) {
+  async execute(message, client) {
     const { cache } = message.guild.roles;
     const channel = message.channel.id;
     const basicGame = {

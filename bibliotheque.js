@@ -121,12 +121,12 @@ exports.game = {
             4 : "Toute la fortune est perdue et la maison détruite"
         }
     },
-    "moschino" : {
+    "Les Sims 4 - Kit Moschino" : {
         "carrieresNonConventionnelles" : {
             1 : "Photographe de mode"
         }
     },
-    "auTravail" : {
+    "Les Sims 4 - Au Travail" : {
         "carrieresConventionnelles" : {
             1 : "Détective",
             2 : "Médecin",
@@ -136,24 +136,24 @@ exports.game = {
             1 : "Tenir sa boutique"
         }
     },
-    "auRestaurant" : {
+    "Les Sims 4 - Au Restaurant" : {
         "carrieresNonConventionnelles" : {
             1 : "Tenir son restaurant"
         }
     },
-    "vieCitadine" : {
+    "Les Sims 4 - Vie Citadine" : {
         "carrieresConventionnelles" : {
             1 : "Critique",
             2 : "Politique",
             3 : "Réseaux Sociaux"
         }
     },
-    "chiensEtChats" : {
+    "Les Sims 4 - Chiens et Chats" : {
         "carrieresConventionnelles" : {
             1 : "vétérinaire"
         }
     },
-    "saisons" : {
+    "Les Sims 4 - Saisons" : {
         "carrieresConventionnelles" : {
             1 : "Jardinier"
         },
@@ -162,21 +162,21 @@ exports.game = {
             2 : "Apiculteur"
         }
     },
-    "heureDeGloire" : {
+    "Les Sims 4 - Heure de Gloire" : {
         "carrieresNonConventionnelles" : {
             1 : "Acteur",
             2 : "Production de Médias",
             3 : "Chanteur"
         }
     },
-    "ileParadisiaques" : {
+    "Les Sims 4 - Iles Paradisiaques" : {
         "carrieresMiTemps" : {
             1 : "Pêcheur",
             2 : "Plongeur",
             3 : "Maître-nageur"
         }
     },
-    "aLaFac" : {
+    "Les Sims 4 - A la Fac" : {
         "carrieresConventionnelles" : {
             1 : "Juridique",
             2 : "Ingénieur",
@@ -187,17 +187,17 @@ exports.game = {
             2 : "Joueur d'E-Sport"
         }
     },
-    "strangerVille" : {
+    "Les Sims 4 - StrangerVille" : {
         "carrieresConventionnelles" : {
             1 : "Militaire"
         }
     },
-    "ecologie" : {
+    "Les Sims 4 - Ecologie" : {
         "carrieresConventionnelles" : {
             1 : "Concepteur Civil"
         }
     },
-    "etreParents": {
+    "Les Sims 4 - Etre Parents" : {
         "objectifGenerationnel" : {
             1 : "Les enfants doivent avoir au moins 3 qualités à l'âge adulte",
             2 : "Un enfant doit avoir 5 qualités à l'age adulte"
@@ -219,4 +219,15 @@ exports.guildRoles = [
     "Les Sims 4 - StrangerVille",
     "Les Sims 4 - Ecologie",
     "Les Sims 4 - Etre Parents"
+]
+
+exports.channelsName = [
+    "sims-challenger",
+    "sims-4-dlc"
+]
+
+exports.typeOfCarriere = [
+    "carriereConventionnelles",
+    "carriereNonConventionnelles",
+    "carriereMiTemps"
 ]

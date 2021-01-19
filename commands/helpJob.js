@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-  name: 'helpJob',
+  name: 'helpjob',
   description: 'A Help Fonction for job\'s description',
   execute(message) {
       const embed = new Discord.MessageEmbed()

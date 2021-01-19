@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'help',
     description: 'A Help Fonction',
-    execute(message, args) {
+    execute(message) {
         const embed = new Discord.MessageEmbed()
         embed.setTitle('Commandes disponibles : ')
         embed.setColor('#f5b3f3')

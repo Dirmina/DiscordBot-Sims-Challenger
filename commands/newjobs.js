@@ -6,7 +6,7 @@ const _ = require('lodash');
 module.exports = {
     name: 'newjobs',
     description: 'New jobs for the heir and his/her companion',
-    execute(game, message) {
+    execute(message, game) {
         const embed = new Discord.MessageEmbed()
         embed.setTitle("Nouveaux métiers pour l'héritier et le conjoint !")
         embed.setColor("#d1d1d1");
