@@ -9,3 +9,13 @@ exports.setField = (categoryName, description) =>
         name: categoryName,
         value: description
     }
+exports.searchAndSetAMissingGuildRole = (roles, guild, roleName) => {
+    if (!roles.cache.find( role => role.name === roleName)) {
+        return guild.roles.create( {
+            data : {
+                name : roleName,
+                color: "#42f566"
+            }
+        })
+    }
+}

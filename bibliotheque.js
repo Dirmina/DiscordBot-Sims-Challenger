@@ -204,3 +204,19 @@ exports.game = {
         }
     }
 }
+
+exports.guildRoles = [
+    "Les Sims 4",
+    "Les Sims 4 - Kit Moschino",
+    "Les Sims 4 - Au Travail",
+    "Les Sims 4 - Au Restaurant",
+    "Les Sims 4 - Vie Citadine",
+    "Les Sims 4 - Chiens et Chats",
+    "Les Sims 4 - Saisons",
+    "Les Sims 4 - Heure de Gloire",
+    "Les Sims 4 - Iles Paradisiaques",
+    "Les Sims 4 - A la Fac",
+    "Les Sims 4 - StrangerVille",
+    "Les Sims 4 - Ecologie",
+    "Les Sims 4 - Etre Parents"
+]

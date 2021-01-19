@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
+const Promise = require('bluebird');
+
 const fs = require('fs');
-const { minMax } = require('./commands/challenge');
+const Functions = require('./functions');
+const Bibliotheque = require('./bibliotheque');
 const dotenv = require('dotenv').config();
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
@@ -31,121 +34,9 @@ bot.on('guildCreate', guild => {
 
     guild.roles.fetch()
         .then(roles => {
-            if (!roles.cache.find( role => role.name === "Les Sims 4")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4",
-                        color: "#42f566"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Kit Moschino")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Kit Moschino",
-                        color: "#42f566"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Au Travail")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Au Travail",
-                        color: "#42f566"
-                    }
-                })
-            }
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Au Restaurant")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Au Restaurant",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Vie Citadine")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Vie Citadine",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Chiens et Chats")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Chiens et Chats",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Saisons")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Saisons",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Heure de Gloire")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Heure de Gloire",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Iles Paradisiaques")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Iles Paradisiaques",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - A la Fac")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - A la Fac",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - StrangerVille")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - StrangerVille",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Ecologie")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Ecologie",
-                        color: "cfcfcf"
-                    }
-                })
-            }
-
-            if (!roles.cache.find( role => role.name === "Les Sims 4 - Etre Parents")) {
-                guild.roles.create( {
-                    data : {
-                        name : "Les Sims 4 - Etre Parents",
-                        color: "cfcfcf"
-                    }
-                })
-            }
+            Promise.each(Bibliotheque.guildRoles, roleName => {
+                Functions.searchAndSetAMissingGuildRole(roles, guild, roleName);
+            })
         })
         .catch (console.error)
 })
@@ -303,5 +194,5 @@ bot.on('message', message => {
     
 })
 
-bot.login("NzUyMjM5NTIzNjY4MTY0NjQ4.X1Uvpg.w9zVIU3PCQk9EnBkEUNGQXF7wgI")
+bot.login(process.env.BOT_TOKEN)
 
