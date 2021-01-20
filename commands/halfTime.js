@@ -8,7 +8,7 @@ module.exports = {
         const title = 'Half Time Command =D ! '
         const name = 'Carrières à Mi-Temps disponible juste pour toi :';
         const value =  _.values(game.carrieresMiTemps);
-        Embeds.createForCommand(title, { name, value })
+        const embed = Embeds.createForCommand(title, { name, value })
         message.author.send(embed);
     }
 }

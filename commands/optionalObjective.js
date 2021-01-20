@@ -8,7 +8,7 @@ module.exports = {
         const title = 'Optional Family Objective Command =D ! '
         const name = 'Tous les objectifs familiaux optionnels disponibles :';
         const value =  _.values(game.objectifFamilialOptionnel);
-        Embeds.createForCommand(title, { name, value })
+        const embed = Embeds.createForCommand(title, { name, value })
         message.author.send(embed);
     }
 }
