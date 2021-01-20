@@ -5,11 +5,10 @@ module.exports = {
     name: 'optionalobjective',
     description: 'The list of all available jobs for you !',
     execute(message, game) {
-        const embed = new Discord.MessageEmbed()
-        embed.setTitle('Optional Family Objective Command =D ! ')
-        embed.setColor('#f5b3f3')
-        embed.addField('Tous les objectifs familiaux optionnels disponibles :', _.values(game.objectifFamilialOptionnel));
-
+        const title = 'Optional Family Objective Command =D ! '
+        const name = 'Tous les objectifs familiaux optionnels disponibles :';
+        const value =  _.values(game.objectifFamilialOptionnel);
+        Embeds.createForCommand(title, { name, value })
         message.author.send(embed);
     }
 }

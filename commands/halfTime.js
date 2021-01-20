@@ -5,11 +5,10 @@ module.exports = {
     name: 'halftime',
     description: 'The list of all available jobs for you !',
     execute(message, game) {
-        const embed = new Discord.MessageEmbed()
-        embed.setTitle('Half Time Command =D ! ')
-        embed.setColor('#f5b3f3')
-        embed.addField('Carrières à Mi-Temps disponible juste pour toi :', _.values(game.carrieresMiTemps));
-
+        const title = 'Half Time Command =D ! '
+        const name = 'Carrières à Mi-Temps disponible juste pour toi :';
+        const value =  _.values(game.carrieresMiTemps);
+        Embeds.createForCommand(title, { name, value })
         message.author.send(embed);
     }
 }

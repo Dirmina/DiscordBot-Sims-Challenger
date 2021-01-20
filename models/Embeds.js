@@ -6,6 +6,13 @@ const Bibliotheque = require('../bibliotheque');
 
 let Embeds = {};
 
+Embeds.createForCommand = (title, field) =>{
+  new Discord.MessageEmbed()
+        embed.setTitle(title)
+        embed.setColor('#f5b3f3')
+        embed.addField(field);
+}
+
 Embeds.editEmbed = (messageToEdit, descriptionUpdate) => {
   messageToEdit.embeds[0].description += descriptionUpdate;
   let embed = new Discord.MessageEmbed()
