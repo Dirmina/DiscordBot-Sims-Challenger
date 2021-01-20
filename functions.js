@@ -18,16 +18,6 @@ Functions.setField = (categoryName, description) =>
         name: categoryName,
         value: description
     }
-Functions.searchAndSetAMissingGuildRole = (roles, guild, roleName) => {
-    if (!roles.cache.find( role => role.name === roleName)) {
-        return guild.roles.create( {
-            data : {
-                name : roleName,
-                color: "#42f566"
-            }
-        })
-    }
-}
 
 Functions.searchAndSetAMissingChannelText = (guild, channelName) => {
     if (!guild.channels.cache.find( channel => channel.name === channelName)) {
@@ -89,10 +79,7 @@ Functions.setEmbed = (Discord, emojisRoles) => {
 Functions.checkReaction = async (reaction, user, channel, cache, reactionName) => {
     Reactions.fetch(reaction);
     if (user.bot || !reaction.message.guild) return;
-    if (reaction.message.channel.id == channel) {
-       reactionName == 'messageReactionAdd' ? await Roles.addRolesToUser(reaction, user, cache)
-        : await Roles.removeRolesToUser(reaction, user, cache)
-      }
+    if (reaction.message.channel.id == channel) Roles.editRolesFromReaction(reaction, reactionName, cache);
 }
 
 module.exports = Functions;

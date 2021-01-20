@@ -3,6 +3,7 @@ const Promise = require('bluebird');
 
 const fs = require('fs');
 const Functions = require('./functions');
+const Roles = require('./models/Roles');
 const Bibliotheque = require('./bibliotheque');
 const dotenv = require('dotenv').config();
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
@@ -33,7 +34,7 @@ bot.on('guildCreate', guild => {
     guild.roles.fetch()
         .then(roles => {
             Promise.each(Bibliotheque.guildRoles, roleName => {
-                Functions.searchAndSetAMissingGuildRole(roles, guild, roleName);
+                Roles.searchAndSetAMissingGuildRole(roles, guild, roleName);
             })
         })
         .catch (console.error)
